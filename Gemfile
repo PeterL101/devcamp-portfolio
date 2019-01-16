@@ -59,3 +59,11 @@ gem 'sassc'
 
 gem 'friendly_id', '~> 5.2.4'
 gem 'devise', '~> 4.5'
+
+gem 'bootstrap', '~> 4.2.1'
+
+gem 'jquery-ui-rails'
+
+gem 'sprockets', '~> 4.0.0.beta8'
+
+gem 'jquery-rails'
