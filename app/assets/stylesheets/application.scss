@@ -165,13 +165,16 @@ body {
  * Custom Styles
  */
 
- .card-body {
+.card-body {
    color: black;
    text-align: left;
    padding-top: 1em;
-    } 
+   padding-left: 1em;
+   padding-right: 1em;
+} 
 
-.auth-links a {
+
+    .auth-links a {
   color: black;
 }
 
@@ -185,5 +188,4 @@ body {
   float: none;
   margin-top: 50px;
   margin-bottom: 50px;
-
-}
+  }
