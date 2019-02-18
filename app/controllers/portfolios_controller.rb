@@ -8,8 +8,10 @@ access all: [:show, :index, :angular], user: {except: [:destroy, :new, :create, 
 
   def sort
     params[:order].each do |key, value|
-      Portfolio.find(value[:id]).update
+      Portfolio.find(value[:id]).update(position: value[:position])
     end
+
+    render nothing: true
   end
 
   def angular

@@ -60,8 +60,6 @@ gem 'sassc'
 gem 'friendly_id', '~> 5.2.4'
 gem 'devise', '~> 4.5'
 
-gem 'jquery-ui-rails'
-
 gem 'sprockets', '~> 4.0.0.beta8'
 
 gem 'jquery-rails'
@@ -75,3 +73,5 @@ gem 'kaminari', '~> 1.1', '>= 1.1.1'
 gem 'bootstrap', '4.0.0.alpha6'
 
 gem 'popper_js', '~> 1.14.5'
+
+gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
