@@ -17,7 +17,7 @@ ready = ->
     $('.card').each (i) ->
      updated_order.push
       id: $(this).data('id')
-      position: i = 1
+      position: i + 1
      return
     $.ajax
       type: 'PUT'

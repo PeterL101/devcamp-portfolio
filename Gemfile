@@ -75,3 +75,5 @@ gem 'bootstrap', '4.0.0.alpha6'
 gem 'popper_js', '~> 1.14.5'
 
 gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
+
+gem 'html5sortable-rails', '~> 0.9.3.0'
