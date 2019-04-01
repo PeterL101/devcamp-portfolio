@@ -58,6 +58,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'sassc'
 
 gem 'friendly_id', '~> 5.2.4'
+
 gem 'devise', '~> 4.5'
 
 gem 'sprockets', '~> 4.0.0.beta8'
@@ -76,4 +77,9 @@ gem 'popper_js', '~> 1.14.5'
 
 gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
 
-gem 'html5sortable-rails', '~> 0.9.3.0'
+gem 'html5sortable-rails', '~> 0.9.3.1'
+
+gem 'rake', '~> 12.3', '>= 12.3.2'
+
+gem 'rspec', '~> 3.8'
+

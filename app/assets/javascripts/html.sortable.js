@@ -2,11 +2,11 @@
  * HTML5Sortable package
  * https://github.com/lukasoppermann/html5sortable
  *
- * Maintained by Lukas Oppermann <lukas@vea.re>
+ * Main9tained by Lukas Oppermann <lukas@vea.re>
  *
  * Released under the MIT license.
- */
- alert("hi thtere");
+  */
+alert ("hi")
 var sortable = (function () {
     'use strict';
 
@@ -257,10 +257,10 @@ var sortable = (function () {
         }
         var rect = element.getClientRects()[0];
         return {
-            left: rect.left + window.pageXOffset,
-            right: rect.right + window.pageXOffset,
-            top: rect.top + window.pageYOffset,
-            bottom: rect.bottom + window.pageYOffset
+            left: rect.left + window.scrollX,
+            right: rect.right + window.scrollX,
+            top: rect.top + window.scrollY,
+            bottom: rect.bottom + window.scrollY
         };
     }
 
@@ -400,12 +400,6 @@ var sortable = (function () {
             .reduce(function (sum, value) { return sum + value; });
     }
 
-    /* eslint-env browser */
-    /**
-     * get handle or return item
-     * @param {Array<HTMLElement>} items
-     * @param {string} selector
-     */
     function _getHandles (items, selector) {
         if (!(items instanceof Array)) {
             throw new Error('You must provide a Array of HTMLElements to be filtered.');
@@ -415,16 +409,11 @@ var sortable = (function () {
         }
         return items
             .filter(function (item) {
-            return item.querySelector(selector) instanceof HTMLElement ||
-                (item.shadowRoot && item.shadowRoot.querySelector(selector) instanceof HTMLElement);
+            return item.querySelector(selector) instanceof HTMLElement;
         })
             .map(function (item) {
-            return item.querySelector(selector) || (item.shadowRoot && item.shadowRoot.querySelector(selector));
+            return item.querySelector(selector);
         });
-    }
-
-    function getEventTarget (event) {
-        return (event.composedPath && event.composedPath()[0]) || event.target;
     }
 
     /**
@@ -466,8 +455,8 @@ var sortable = (function () {
             }
             // needs to be set for HTML5 drag & drop to work
             event.dataTransfer.effectAllowed = 'copyMove';
-            // Firefox requires it to use the event target's id for the data
-            event.dataTransfer.setData('text/plain', getEventTarget(event).id);
+            // Firefox requires arbitrary content in setData for the drag & drop functionality to work
+            event.dataTransfer.setData('text/plain', 'arbitrary');
             // set the drag image on the event
             event.dataTransfer.setDragImage(dragImage.element, dragImage.posX, dragImage.posY);
         }
@@ -598,9 +587,6 @@ var sortable = (function () {
     var originIndex;
     var originElementIndex;
     var originItemsBeforeUpdate;
-    // Previous Sortable Container - we dispatch as sortenter event when a
-    // dragged item enters a sortableContainer for the first time
-    var previousContainer;
     // Destination List - data from before any item was changed
     var destinationItemsBeforeUpdate;
     /**
@@ -655,13 +641,8 @@ var sortable = (function () {
     /**
      * find sortable from element. travels up parent element until found or null.
      * @param {HTMLElement} element a single sortable
-     * @param {Event} event - the current event. We need to pass it to be able to
-     * find Sortable whith shadowRoot (document fragment has no parent)
      */
-    function findSortable(element, event) {
-        if (event.composedPath) {
-            return event.composedPath().find(function (el) { return el.isSortable; });
-        }
+    function findSortable(element) {
         while (element.isSortable !== true) {
             element = element.parentElement;
         }
@@ -677,7 +658,7 @@ var sortable = (function () {
         var options = addData(sortableElement, 'opts');
         var items = _filter(sortableElement.children, options.items);
         var itemlist = items.filter(function (ele) {
-            return ele.contains(element) || (ele.shadowRoot && ele.shadowRoot.contains(element));
+            return ele.contains(element);
         });
         return itemlist.length > 0 ? itemlist[0] : element;
     }
@@ -772,7 +753,23 @@ var sortable = (function () {
     function sortable(sortableElements, options) {
         // get method string to see if a method is called
         var method = String(options);
-        options = options || {};
+        // merge user options with defaultss
+        options = Object.assign({
+            connectWith: null,
+            acceptFrom: null,
+            copy: false,
+            placeholder: null,
+            disableIEFix: null,
+            placeholderClass: 'sortable-placeholder',
+            draggingClass: 'sortable-dragging',
+            hoverClass: false,
+            debounce: 0,
+            maxItems: 0,
+            itemSerializer: undefined,
+            containerSerializer: undefined,
+            customDragImage: null,
+            items: null
+        }, (typeof options === 'object') ? options : {});
         // check if the user provided a selector instead of an element
         if (typeof sortableElements === 'string') {
             sortableElements = document.querySelectorAll(sortableElements);
@@ -799,10 +796,11 @@ var sortable = (function () {
                 }
             });
             // merge options with default options
-            options = Object.assign({}, defaultConfiguration, store(sortableElement).config, options);
+            options = Object.assign({}, defaultConfiguration, options);
             // init data store for sortable
             store(sortableElement).config = options;
-            // set options on sortable
+            // get options & set options on sortable
+            options = addData(sortableElement, 'opts') || options;
             addData(sortableElement, 'opts', options);
             // property to define as sortable
             sortableElement.isSortable = true;
@@ -814,12 +812,7 @@ var sortable = (function () {
             var customPlaceholder;
             if (options.placeholder !== null && options.placeholder !== undefined) {
                 var tempContainer = document.createElement(sortableElement.tagName);
-                if (options.placeholder instanceof HTMLElement) {
-                    tempContainer.appendChild(options.placeholder);
-                }
-                else {
-                    tempContainer.innerHTML = options.placeholder;
-                }
+                tempContainer.innerHTML = options.placeholder;
                 customPlaceholder = tempContainer.children[0];
             }
             // add placeholder
@@ -843,16 +836,15 @@ var sortable = (function () {
              */
             addEventListener(sortableElement, 'dragstart', function (e) {
                 // ignore dragstart events
-                var target = getEventTarget(e);
-                if (target.isSortable === true) {
+                if (e.target.isSortable === true) {
                     return;
                 }
                 e.stopImmediatePropagation();
-                if ((options.handle && !target.matches(options.handle)) || target.getAttribute('draggable') === 'false') {
+                if ((options.handle && !e.target.matches(options.handle)) || e.target.getAttribute('draggable') === 'false') {
                     return;
                 }
-                var sortableContainer = findSortable(target, e);
-                var dragItem = findDragElement(sortableContainer, target);
+                var sortableContainer = findSortable(e.target);
+                var dragItem = findDragElement(sortableContainer, e.target);
                 // grab values
                 originItemsBeforeUpdate = _filter(sortableContainer.children, options.items);
                 originIndex = originItemsBeforeUpdate.indexOf(dragItem);
@@ -873,8 +865,7 @@ var sortable = (function () {
                             index: originIndex,
                             container: originContainer
                         },
-                        item: dragging,
-                        originalTarget: target
+                        item: dragging
                     }
                 }));
             });
@@ -882,28 +873,12 @@ var sortable = (function () {
              We are capturing targetSortable before modifications with 'dragenter' event
             */
             addEventListener(sortableElement, 'dragenter', function (e) {
-                var target = getEventTarget(e);
-                var sortableContainer = findSortable(target, e);
-                if (sortableContainer && sortableContainer !== previousContainer) {
-                    destinationItemsBeforeUpdate = _filter(sortableContainer.children, addData(sortableContainer, 'items'))
-                        .filter(function (item) { return item !== store(sortableElement).placeholder; });
-                    sortableContainer.dispatchEvent(new CustomEvent('sortenter', {
-                        detail: {
-                            origin: {
-                                elementIndex: originElementIndex,
-                                index: originIndex,
-                                container: originContainer
-                            },
-                            destination: {
-                                container: sortableContainer,
-                                itemsBeforeUpdate: destinationItemsBeforeUpdate
-                            },
-                            item: dragging,
-                            originalTarget: target
-                        }
-                    }));
+                if (e.target.isSortable === true) {
+                    return;
                 }
-                previousContainer = sortableContainer;
+                var sortableContainer = findSortable(e.target);
+                destinationItemsBeforeUpdate = _filter(sortableContainer.children, addData(sortableContainer, 'items'))
+                    .filter(function (item) { return item !== store(sortableElement).placeholder; });
             });
             /*
              * Dragend Event - https://developer.mozilla.org/en-US/docs/Web/Events/dragend
@@ -938,7 +913,6 @@ var sortable = (function () {
                         item: dragging
                     }
                 }));
-                previousContainer = null;
                 dragging = null;
                 draggingHeight = null;
             });
@@ -1087,7 +1061,7 @@ var sortable = (function () {
             // Handle dragover and dragenter events on draggable items
             var onDragOverEnter = function (e) {
                 var element = e.target;
-                var sortableElement = element.isSortable === true ? element : findSortable(element, e);
+                var sortableElement = element.isSortable === true ? element : findSortable(element);
                 element = findDragElement(sortableElement, element);
                 if (!dragging || !_listsConnected(sortableElement, dragging.parentElement) || addData(sortableElement, '_disabled') === 'true') {
                     return;

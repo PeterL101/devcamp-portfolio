@@ -1,4 +1,6 @@
-ready = undefined
+$(document).on 'turbolinks:load', ->
+  sortable('.sortable')
+  ready = undefined
 set_positions = undefined
 
 set_positions = ->
