@@ -60,12 +60,28 @@ gem 'sassc'
 gem 'friendly_id', '~> 5.2.4'
 gem 'devise', '~> 4.5'
 
-gem 'bootstrap', '~> 4.2.1'
-
-gem 'jquery-ui-rails'
-
 gem 'sprockets', '~> 4.0.0.beta8'
 
 gem 'jquery-rails'
 
 gem 'petergate', '~> 2.0', '>= 2.0.1'
+
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.4'
+
+gem 'kaminari', '~> 1.1', '>= 1.1.1'
+
+gem 'bootstrap', '4.0.0.alpha6'
+
+gem 'popper_js', '~> 1.14.5'
+
+gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
+
+gem 'html5sortable-rails', '~> 0.9.3.0'
+
+gem 'dotenv-rails', '~> 2.7', '>= 2.7.2'
+
+gem 'carrierwave-aws', '~> 1.3'
+
+gem 'carrierwave', '~> 1.3', '>= 1.3.1'
+
+gem 'mini_magick', '~> 4.9', '>= 4.9.3'
