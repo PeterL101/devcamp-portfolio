@@ -28,3 +28,4 @@
 
 # I don't want to add my secrets
 /config/secrets.yml
+.env
