@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails DevcampPortfolio: development" uuid="c10e1291-0406-4ff7-ae2f-292d938df6e4">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="POSTGRES" exact-version="0" />
+      <schema-mapping />
+    </data-source>
+    <data-source name="Rails DevcampPortfolio: production" uuid="24a9572b-c81a-45b2-a9d9-bb3d113adf7b">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="POSTGRES" exact-version="0" />
+      <user-name>DevcampPortfolio</user-name>
+      <schema-mapping />
+    </data-source>
+    <data-source name="Rails DevcampPortfolio: test" uuid="1c971483-93ab-4fba-b7c7-ddd6e907d80d">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="POSTGRES" exact-version="0" />
+      <schema-mapping />
+    </data-source>
+  </component>
+</project>
