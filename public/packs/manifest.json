@@ -1,0 +1,40 @@
+{
+  "application.css": "/packs/css/application-4ba2d186.css",
+  "application.css.map": "/packs/css/application-4ba2d186.css.map",
+  "application.js": "/packs/js/application-708d7a5f23064e2f00df.js",
+  "application.js.map": "/packs/js/application-708d7a5f23064e2f00df.js.map",
+  "entrypoints": {
+    "application": {
+      "css": [
+        "/packs/css/application-4ba2d186.css"
+      ],
+      "js": [
+        "/packs/js/application-708d7a5f23064e2f00df.js"
+      ],
+      "css.map": [
+        "/packs/css/application-4ba2d186.css.map"
+      ],
+      "js.map": [
+        "/packs/js/application-708d7a5f23064e2f00df.js.map"
+      ]
+    },
+    "src/application": {
+      "css": [
+        "/packs/css/src/application-4ba2d186.css"
+      ],
+      "js": [
+        "/packs/js/src/application-da5c2dadc09e0af3802c.js"
+      ],
+      "css.map": [
+        "/packs/css/src/application-4ba2d186.css.map"
+      ],
+      "js.map": [
+        "/packs/js/src/application-da5c2dadc09e0af3802c.js.map"
+      ]
+    }
+  },
+  "src/application.css": "/packs/css/src/application-4ba2d186.css",
+  "src/application.css.map": "/packs/css/src/application-4ba2d186.css.map",
+  "src/application.js": "/packs/js/src/application-da5c2dadc09e0af3802c.js",
+  "src/application.js.map": "/packs/js/src/application-da5c2dadc09e0af3802c.js.map"
+}

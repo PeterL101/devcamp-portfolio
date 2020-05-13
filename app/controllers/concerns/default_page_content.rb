@@ -6,7 +6,7 @@ module DefaultPageContent
   end
 
   def set_page_defaults
-    @page_title = "DevcampPortfolio | My Portfilio Website"
-    @seo_keywords = "Peter Lynch Portfolio"
+    @page_title = "StoneTex Ltd | Concrete & Marble Floor Polishing"
+    @seo_keywords = "StoneTex Ltd, Marble Floor Polishing, Concrete Floor Polishing, Marble Polishing Dublin, Natural Stone Restoration, Travertine Polishing, Polished Concrete Floors, Limestone Floor Polishing, Marble Floor Restoration, Marble Floor Cleaning"
   end 
 end

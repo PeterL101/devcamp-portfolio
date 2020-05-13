@@ -95,6 +95,7 @@ body {
   border-bottom-color: #fff;
 }
 
+
 @media (min-width: 48em) {
   .masthead-brand {
     float: left;
@@ -165,12 +166,6 @@ body {
  * Custom Styles
  */
 
-.card-body {
-   color: black;
-   text-align: left;
-} 
-
-
     .auth-links a {
   color: black;
 }
@@ -195,7 +190,7 @@ body {
     top: 50%;
     left: 50%;
     min-width: 150%;
-    min-height: 100%;
+    min-height: 150%;
     width: auto;
     height: auto;
     z-index: -100;
@@ -208,3 +203,20 @@ body {
   .app-footer {
   color: white;
   }
+
+  .app-card-container {
+  color: black;
+  text-align: left;
+}
+
+.app-card-container > .card {
+  padding: 5px;
+}
+
+.profile-img {
+  border: 1px solid grey;
+}
+
+.app-card-container a {
+  color: #8B0000;
+}

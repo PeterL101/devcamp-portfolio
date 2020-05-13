@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 before_action :set_copyright
 
   def set_copyright
-    @copyright = StonetexViewTool::Renderer.copyright 'Stonetex', 'All rights reserved'
+    @copyright = StonetexViewTool::Renderer.copyright 'StoneTex Ltd', 'All rights reserved'
   end
 end
 
