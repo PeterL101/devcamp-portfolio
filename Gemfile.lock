@@ -237,6 +237,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    redis (4.1.4)
     responders (3.0.0)
       actionpack (>= 5.0)
       railties (>= 5.0)
@@ -337,6 +338,7 @@ DEPENDENCIES
   pry-byebug
   puma (~> 3.11)
   rails (= 6.0.2.2)
+  redis (~> 4.1, >= 4.1.4)
   sass-rails (~> 5.0)
   sassc
   spring
@@ -350,7 +352,7 @@ DEPENDENCIES
   webpacker
 
 RUBY VERSION
-   ruby 2.7.0p0
+   ruby 2.7.1p83
 
 BUNDLED WITH
    2.1.4

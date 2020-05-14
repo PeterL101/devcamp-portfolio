@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.0'
+ruby '2.7.1'
 
 gem 'rails', '6.0.2.2'
 gem 'pg', '>= 0.18', '< 2.0'
@@ -46,3 +46,4 @@ gem "mini_magick", ">= 4.9.4"
 gem 'cocoon', '~> 1.2', '>= 1.2.12'
 gem 'gritter', '~> 1.2'
 gem 'twitter', '~> 6.2'
+gem 'redis', '~> 4.1', '>= 4.1.4'
