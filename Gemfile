@@ -45,4 +45,3 @@ gem 'carrierwave', '~> 1.3', '>= 1.3.1'
 gem "mini_magick", ">= 4.9.4"
 gem 'cocoon', '~> 1.2', '>= 1.2.12'
 gem 'gritter', '~> 1.2'
-gem 'twitter', '~> 6.2'
