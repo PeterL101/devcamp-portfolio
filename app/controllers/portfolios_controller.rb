@@ -38,7 +38,7 @@ access all: [:show, :index, :angular], user: {except: [:destroy, :new, :create, 
   end
 
   def update
-    
+
     respond_to do |format|
       if @portfolio_item.update(portfolio_params)
         format.html { redirect_to portfolios_path, notice: 'The record  was successfully updated.' }
@@ -48,7 +48,7 @@ access all: [:show, :index, :angular], user: {except: [:destroy, :new, :create, 
     end
   end
 
-   def show
+  def show
   end
 
   def destroy
@@ -65,8 +65,8 @@ end
 private
 
 def portfolio_params
-  params.require(:portfolio).permit(:title, 
-                                    :subtitle, 
+  params.require(:portfolio).permit(:title,
+                                    :subtitle,
                                     :body,
                                     :main_image,
                                     :thumb_image,
