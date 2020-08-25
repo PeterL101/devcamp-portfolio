@@ -3,11 +3,16 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+
     <title> <%= @page_title %> </title>
     <%= csrf_meta_tags %>
 
+   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Montserrat&display=swap" rel="stylesheet">
+
     <meta name="keywords" content= "<%= @seo_keywords %>" />
+
+
+    <%= favicon_link_tag asset_path('favicon.ico') %>
 
     <%= csp_meta_tag %>
 
@@ -15,7 +20,7 @@
     <%= stylesheet_link_tag    'blogs', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
+
   </head>
 
   <body>
@@ -23,12 +28,13 @@
     <div class="site-wrapper">
       <div class="site-wrapper-inner">
        <div class="cover-container">
- 
+
          <%= video_tag(
            'concrete-grinding1.mp4',
            id: 'background',
            autoplay: true,
            loop: true,
+           muted: true,
            poster: 'polished-marble.jpg'
          )
          %>
@@ -41,11 +47,8 @@
 
          <%= alerts %>
 
-         <%= source_helper("application") %>
-
         </div>
       </div>
     </div>
-  
   </body>
 </html>

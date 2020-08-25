@@ -2,13 +2,15 @@
   "name": "DevcampPortfolio",
   "private": true,
   "dependencies": {
-    "@rails/webpacker": "5.1.1",
+    "@rails/webpacker": "^5.2.1",
     "bootstrap": "^4.4.1",
     "jquery": "^3.5.0",
+    "mdbootstrap": "^4.19.1",
     "popper.js": "^1.16.1",
+    "serialize-javascript": "^4.0.0",
     "webpacker": "^4.6.0"
   },
   "devDependencies": {
-    "webpack-dev-server": "^3.10.3"
+    "webpack-dev-server": "^3.11.0"
   }
 }

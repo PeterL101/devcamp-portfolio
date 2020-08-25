@@ -13,7 +13,7 @@
 }
 
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   color: #555;
 }
 
@@ -23,9 +23,8 @@ h3, .h3,
 h4, .h4,
 h5, .h5,
 h6, .h6 {
-  font-family: 'Roboto Slab', serif;
+font-family: 'Comfortaa', cursive;
   font-weight: normal;
-  color: #333;
 }
 
 
@@ -175,4 +174,13 @@ h6, .h6 {
 
 .social-links li {
   font-size: 2.5em;
+}
+
+.blogcrumb a {
+  font-size: 1.25em;
+  margin: 0px 10px 0px 10px;
+}
+
+.blog-nav {
+  margin-bottom: 30px
 }
