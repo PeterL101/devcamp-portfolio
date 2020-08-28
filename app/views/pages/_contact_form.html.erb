@@ -1,0 +1,15 @@
+<div class="contact-form">
+  <h4>Drop us a line</h4>
+  <p class="email-note" data-success="Thank you" data-error="We're sorry, there were some errors"></p>
+  <%= form_for :contact_us_form, url: contact_us_path, method: :post, html: { remote: true, class: 'contact-us-form' } do |f| %>
+  <%= f.text_field :author_name, label: false, placeholder: 'Your name... *', class: 'form-control' %>
+  <span class="email-error-placeholder author_name_errors"></span>
+  <%= f.text_field :author_phone, label: false, placeholder: 'Your phone...', class: 'form-control' %>
+  <span class="email-error-placeholder author_phone_errors"></span>
+  <%= f.email_field :author_email, label: false, placeholder: 'Your email... *', class: 'form-control' %>
+  <span class="email-error-placeholder author_email_errors"></span>
+  <%= f.text_area :message, label: false, placeholder: 'Your message *', class: 'form-control' %>
+  <span class="email-error-placeholder message_errors"></span>
+  <%= f.submit 'Send message', class: 'btn btn-primary form-trigger' %>
+  <% end %>
+</div>

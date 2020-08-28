@@ -7,7 +7,8 @@ Rails.application.routes.draw do
 
   get 'angular-items', to: 'portfolios#angular'
   get 'portfolio/:id', to: 'portfolios#show', as: 'portfolio_show'
-  get 'contact', to: 'contacts#contact'
+  get 'contact', to: 'pages#contact'
+  post 'contact_us', to: 'pages#contact_us'
   get 'about', to: 'pages#about'
 
   resources :contacts
