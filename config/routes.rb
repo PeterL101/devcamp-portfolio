@@ -11,8 +11,6 @@ Rails.application.routes.draw do
   post 'contact_us', to: 'pages#contact_us'
   get 'about', to: 'pages#about'
 
-  resources :contacts
-
   resources :blogs do
     member do
       get :toggle_status
