@@ -49,6 +49,6 @@ gem "mini_magick", ">= 4.9.4"
 gem 'cocoon', '~> 1.2', '>= 1.2.12'
 gem 'gritter', '~> 1.2'
 gem 'redis', '~> 4.1', '>= 4.1.4'
-gem 'redcarpet', '~> 3.3', '>= 3.3.4'
+gem 'redcarpet', '~> 3.5'
 gem 'coderay', '~> 1.1', '>= 1.1.2'
 
